@@ -3,7 +3,7 @@ title: triphere
 email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
   Coding-related things by Scott Nath. Many smarts, much wizard!
-baseurl: "" # the subpath of your site, e.g. /blog/
+baseurl: "/triphere" # the subpath of your site, e.g. /blog/
 url: "http://triphere.com" # the base hostname & protocol for your site
 twitter_username: triphere
 github_username:  scottnath
