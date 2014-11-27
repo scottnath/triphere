@@ -1,3 +1,8 @@
+---
+layout: post
+date:   2014-10-08 17:00:00
+---
+
 # Using Angular Github Adapter to view a GitHub repo
 
 The [Angular Github Adapter](https://github.com/PascalPrecht/angular-github-adapter) creates an AngularJS interface for Michael Aufreiter's [GitHub API javascript wrapper](https://github.com/michael/github). I had a project at work where I wanted to integrate some GitHub api functionality into an AngularJS app and I needed to talk to github.js from AngularJS. This is some example code I used to get details on a GitHub repo.

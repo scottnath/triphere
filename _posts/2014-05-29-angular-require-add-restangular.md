@@ -1,3 +1,8 @@
+---
+layout: post
+date:   2014-05-29 17:00:00
+---
+
 # How to add Restangular to a generator-angular-require created app
 
 I needed to add Restangular to my app. These are the steps I followed.

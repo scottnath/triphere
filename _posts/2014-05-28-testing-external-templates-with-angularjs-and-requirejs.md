@@ -1,3 +1,7 @@
+---
+layout: post
+date:   2014-05-28 02:24:45
+---
 # Testing External Templates in an AngularJS/RequireJS environment
 
 At work we're moving into a more front-end focused world for building sites - well, we're experimenting with it at least. One of the most important parts of this attempted shift is being able to unit-test our code. I've been having a pickle of a time getting the tests to work with html templates called via Angular's templateUrl directive function.
@@ -16,8 +20,10 @@ I went back and forth for a while with Aaron in a GitHub Issue - [Directive temp
 
 ### Start making a basic setup
 ```yo angular-require [app-name]```
+
 ### Don't forget to build
 ```grunt build```
+
 ### Add items to ./karma.conf.js
 ```
 files: [
@@ -33,6 +39,7 @@ files: [
       stripPrefix: 'app/',
     },
 ```
+
 ### Make changes to ./test/test-main.js
 #### add *views* folder to paths:
 ```
@@ -42,6 +49,7 @@ files: [
         'views': '../views'
     },
 ```
+
 #### add *each* template you create to the shim:
 ```
     shim: {
@@ -49,10 +57,13 @@ files: [
         'views/mydirective.html': {deps: ['angular']}
     },
 ```
+
 ### Create a directive
 ```yo angular-require:directive myDirective```
+
 ### Create the view
 ```yo angular-require:view myDirective```
+
 ### Change the directive so that it uses a templateUrl
 file located: ./app/scripts/directives/mydirective.js
 
@@ -69,6 +80,7 @@ define(['angular'], function (angular) {
   	});
 });
 ```
+
 ### Change the directive test file so that it can see the template file
 file located: ./test/spec/directives/mydirectiveSpec.js
 
@@ -98,17 +110,20 @@ define(['angular', 'angular-mocks', 'app', 'views/mydirective.html'], function(a
   });
 });
 ```
+
 #### What's changed?
 * in *define*, we've added the template in the dependencies:
 
 ```
 define(['angular', 'angular-mocks', 'app', 'views/mydirective.html'], function(angular, mocks, app) {
 ```
+
 * Around line 13, we link the template:
 
 ```
 beforeEach(module('views/mydirective.html'));
 ```
+
 * I added $digest in the it() section
 
 ```
