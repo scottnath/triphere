@@ -1,0 +1,33 @@
+<link rel="import" href="../bower_components/polymer/polymer.html">
+
+<polymer-element name="picture-container">
+
+  <template>
+    <style>
+        :host {
+          display: block;
+          width: 100%;
+        }
+        picture {
+          display: block;
+          width: 100%;
+        }
+    </style>
+    <hr>
+    <h2>Picture Container</h2>
+    <picture>
+      <source srcset="http://www.placecage.com/c/500/500" media="(min-width: 500px)">
+      <source srcset="http://www.placecage.com/c/200/200" media="(min-width: 400px)">
+      <img srcset="http://www.placecage.com/c/100/100" alt="An example of the picture element">
+    </picture>
+    <hr>
+  </template>
+  <script>
+
+Polymer('picture-container',{
+    ready: function() {
+        picturefill({elements: this.shadowRoot.getElementsByTagName('picture')});
+    }
+});
+  </script>
+</polymer-element>
