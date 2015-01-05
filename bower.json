@@ -1,0 +1,37 @@
+{
+  "name": "triphere.com",
+  "version": "0.0.2",
+  "homepage": "http://scottnath.github.io/triphere",
+  "authors": [
+    "Scott Nath <github@scottnath.com>"
+  ],
+  "description": "triphere website",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "webcomponentsjs": "~0.5.2",
+    "google-map": "~0.4.0",
+    "google-calendar": "~0.0.2",
+    "github-card": "git@github.com:pazguille/github-card.git",
+    "google-chart": "~0.2.1",
+    "polymer-github-card": "~0.0.1",
+    "x-instagram": "~0.0.1",
+    "instagram-feed": "git@github.com:mdb/polymer-instagram-feed.git",
+    "facebook-activity-feed": "~1.0.0",
+    "facebook-image-element": "git@github.com:luiztiago/facebook-image-element.git",
+    "picturefill": "~2.2.0"
+  },
+  "resolutions": {
+    "core-component-page": "master",
+    "polymer": "master",
+    "google-apis": "master",
+    "platform": "^0.3.0"
+  }
+}

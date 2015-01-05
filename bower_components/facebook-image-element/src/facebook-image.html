@@ -1,0 +1,21 @@
+<!-- Import Polymer -->
+<link rel="import" href="../../polymer/polymer.html">
+
+<polymer-element name="facebook-image"
+		 attributes="object type width height">
+
+	<template>
+		<img src="https://graph.facebook.com/{{object}}/picture?type={{type}}&width={{width}}&height={{height}}" />
+	</template>
+
+	<script>
+		Polymer('facebook-image', {
+			object  : '',
+			type    : 'large',
+			width   : '',
+			height  : '',
+			created : function () {}
+		});
+	</script>
+
+</polymer-element>

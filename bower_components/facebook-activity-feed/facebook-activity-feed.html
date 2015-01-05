@@ -1,0 +1,238 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+A Polymer component for displaying the activity feed for your site.
+
+##### Example
+
+    <facebook-activity-feed></facebook-activity-feed>
+
+@element facebook-activity-feed
+@blurb A Polymer component for displaying the activity feed for your site.
+@homepage http://kunalnagar.github.io/facebook-activity-feed
+-->
+<polymer-element name="facebook-activity-feed" attributes="type appid action colorscheme filter header height linktarget maxage recommendations ref site width">
+    <template>
+        <!-- HTML5 -->
+        <div id="fbactivityfeedhtml5">
+	        <div
+	        	class="fb-activity"
+	        	data-action="{{ action }}"
+	        	data-colorscheme="{{ colorscheme }}"
+	        	data-filter="{{ filter }}"
+	        	data-header="{{ showheader }}"
+	        	data-height="{{ height }}"
+	        	data-linktarget="{{ linktarget }}"
+	        	data-max-age="{{ maxage }}"
+	        	data-recommendations="{{ recommendations }}"
+	        	data-ref="{{ ref }}"
+	        	data-site="{{ site }}"
+	        	data-width="{{ width }}"
+	        ></div>
+	   	</div>
+
+        <!-- XFBML -->
+        <div id="fbactivityfeedxfbml">
+	        <fb:activity
+	        	action="{{ action }}"
+	        	colorscheme="{{ colorscheme }}"
+	        	filter="{{ filter }}"
+	        	header="{{ showheader }}"
+	        	height="{{ height }}"
+	        	linktarget="{{ linktarget }}"
+	        	max_age="{{ maxage }}"
+	        	recommendations="{{ recommendations }}"
+	        	ref="{{ ref }}"
+	        	site="{{ site }}"
+	        	width="{{ width }}"
+	        ></fb:activity>
+	  	</div>
+    </template>
+    <script>
+    Polymer({
+        /**
+         * Type of Like Button
+         *
+         * Values: `html5` | `xfbml`
+         *
+         * @attribute type
+         * @type string
+         * @default html5
+         */
+        type: 'html5',
+
+        /**
+         * Facebook APP ID
+         *
+         * @attribute appid
+         * @type string
+         */
+        appid: '266086456917866',
+
+        /**
+         * A comma-separated list of [Open Graph action types](https://developers.facebook.com/docs/opengraph/creating-custom-stories/#actiontypes) to show in the feed.
+         *
+         * @attribute action
+         * @type string
+         * @default likes, recommends
+         */
+        action: 'likes, recommends',
+
+        /**
+         * The color scheme used by the plugin.
+         *
+         * Values: `light` | `dark`
+         *
+         * @attribute colorscheme
+         * @type string
+         * @default light
+         */
+        colorscheme: 'light',
+
+        /**
+         * Allows you to filter which URLs are shown in the plugin.
+         *
+         * For example, if the site parameter is set to 'www.example.com' and the filter parameter was set to '/section1/section2' then only pages which matched 'http://www.example.com/section1/section2/*' would be included in the activity feed section of this plugin.
+         *
+         * This filter does not apply to any recommendations which may appear in this plugin (see recommendations setting).
+         *
+         * @attribute filter
+         * @type string
+         */
+        filter: '',
+
+        /**
+         * Show the "Recent Activity" header above the feed.
+         *
+         * Values: `true` | `false`
+         *
+         * @attribute header
+         * @type bool
+         * @default true
+         */
+        header: 'true',
+
+        /**
+         * The height of the plugin in pixels.
+         *
+         * @attribute height
+         * @type int
+         * @default 300
+         */
+        height: '300',
+
+        /**
+         * Determines what happens when people click on the links in the feed.
+         *
+         * Can be any of the [standard HTML target values](http://www.w3schools.com/tags/att_a_target.asp).
+         *
+         * @attribute linktarget
+         * @type string
+         * @default _blank
+         */
+        linktarget: '_blank',
+
+        /**
+         * Limit the created time of articles that are shown in the feed.
+         *
+         * Values: `1` to `180`
+         *
+         * @attribute maxage
+         * @type int
+         * @default 0 (no limit)
+         */
+        maxage: '0',
+
+        /**
+         * Specifies whether to always show recommendations (Articles liked by a high amount of people) in the bottom half of the feed.
+         *
+         * Values: `true` | `false`
+         *
+         * @attribute recommendations
+         * @type bool
+         * @default false
+         */
+        recommendations: 'false',
+
+        /**
+         * A label for tracking referrals which must be less than 50 characters and can contain alphanumeric characters and some punctuation.
+         *
+         * See [FAQ](https://developers.facebook.com/docs/plugins/activity-feed#faqref) for more information.
+         *
+         * @attribute ref
+         */
+        ref: '',
+
+        /**
+         * The domain for which to show activity.
+         *
+         * @attribute site
+         * @type string
+         */
+        site: 'developers.facebook.com',
+
+        /**
+         * The width of the plugin (standard layout only), which is subject to the minimum and default width.
+         *
+         * For more details, checkout the [layout FAQ](https://developers.facebook.com/docs/plugins/activity/#faqref)
+         *
+         * @attribute width
+         * @type int
+         * @default 300
+         */
+        width: '300',
+
+        renderFacebookActivityFeed: function() {
+            (function(d, s, id) {
+                var js, fjs = d.getElementsByTagName(s)[0];
+                if (d.getElementById(id)) return;
+                js = d.createElement(s);
+                js.id = id;
+                js.src = "//connect.facebook.net/en_US/sdk.js";
+                fjs.parentNode.insertBefore(js, fjs);
+            }(document, 'script', 'facebook-jssdk'));
+            switch (this.type) {
+                case 'html5':
+                    console.log('html5');
+                    var container = this.$.fbactivityfeedhtml5,
+                        that = this;
+                    window.fbAsyncInit = function() {
+                        FB.init({
+                            appId: that.appid,
+                            xfbml: true,
+                            version: 'v2.1',
+                            status: true
+                        });
+                        FB.XFBML.parse(container);
+                    }
+                    break;
+                case 'xfbml':
+                    console.log('xfbml');
+                    var container = this.$.fbactivityfeedxfbml,
+                        that = this;
+                    window.fbAsyncInit = function() {
+                        FB.init({
+                            appId: that.appid,
+                            xfbml: true,
+                            version: 'v2.1'
+                        });
+                        FB.XFBML.parse(container);
+                    }
+                    break;
+           	}
+        },
+        ready: function() {
+            this.async(this.renderFacebookActivityFeed, null, 1000);
+        }
+    });
+    </script>
+</polymer-element>

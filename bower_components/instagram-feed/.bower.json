@@ -1,0 +1,35 @@
+{
+  "name": "instagram-feed",
+  "homepage": "https://github.com/mdb/instagram-feed",
+  "authors": [
+    "Mike Ball <mikedball@gmail.com>"
+  ],
+  "description": "A custom Polymer element for displaying a user's Instagram feed",
+  "main": "src/instagram-feed.html",
+  "keywords": [
+    "web-component",
+    "web-components",
+    "polymer",
+    "instagram"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules"
+  ],
+  "dependencies": {
+    "platform": "Polymer/platform#~0.2.0",
+    "polymer": "Polymer/polymer#~0.2.0",
+    "polymer-jsonp": "Polymer/polymer-jsonp#~0.2.0"
+  },
+  "_release": "1712c3339c",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "1712c3339c4cad6a2c14f42d4e9cccc86cff13be"
+  },
+  "_source": "git@github.com:mdb/polymer-instagram-feed.git",
+  "_target": "*",
+  "_originalSource": "git@github.com:mdb/polymer-instagram-feed.git",
+  "_direct": true
+}

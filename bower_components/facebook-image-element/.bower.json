@@ -1,0 +1,14 @@
+{
+  "name": "facebook-image-element",
+  "homepage": "https://github.com/luiztiago/facebook-image-element",
+  "_release": "dd9514d6d0",
+  "_resolution": {
+    "type": "branch",
+    "branch": "master",
+    "commit": "dd9514d6d0a055b09a37e554088cc3d1823ca3a3"
+  },
+  "_source": "git@github.com:luiztiago/facebook-image-element.git",
+  "_target": "*",
+  "_originalSource": "git@github.com:luiztiago/facebook-image-element.git",
+  "_direct": true
+}
