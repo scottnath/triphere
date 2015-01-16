@@ -26,7 +26,8 @@
     "instagram-feed": "git@github.com:mdb/polymer-instagram-feed.git",
     "facebook-activity-feed": "~1.0.0",
     "facebook-image-element": "git@github.com:luiztiago/facebook-image-element.git",
-    "picturefill": "~2.2.0"
+    "picturefill": "~2.2.0",
+    "basic-sequence": "*"
   },
   "resolutions": {
     "core-component-page": "master",
