@@ -1,3 +1,8 @@
+---
+layout: post
+date:   2015-01-22 17:00:00
+---
+
 # Using a JSON Schema to create AngularJS Forms with ngMessages
 
 Seeking to automate as many things as possible, I now want to add my forms to that automation plan.
